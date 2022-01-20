@@ -1,8 +1,31 @@
-<header>
+<header class="faixa" >
   <h1 class="titulo">Clínica Cefet-MG</h1>
 </header>
 
 <body>
+  <div class="row">
+
+    <div class="column">
+      <h2>Conheça mais sobre a clínica!</h2> <!--home e galeria de fotos-->
+      <button (click)="homeGaleria()"></button>
+    </div>
+
+    <div class="column"> <!--login-->
+      <h2>Área do funcionário</h2>
+      <button (click)="login()"></button>
+    </div>
+
+    <div class="column"> <!--cadastro de endereços-->
+      <h2>Cadastre um endereço</h2>
+      <button (click)="cadastroEndereco()"></button>
+    </div>
+
+    <div class="column"> <!--agendamento de consultas-->
+      <h2>Agendamento de consultas</h2>
+      <button (click)="agendamento()"></button>
+    </div>
+
+  </div>
 </body>
 
 <footer>
