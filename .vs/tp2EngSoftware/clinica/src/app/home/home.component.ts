@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  testeRoute() {
+  quemsomos() {
     this.router.navigate(['/quemsomos']);
   }
 
