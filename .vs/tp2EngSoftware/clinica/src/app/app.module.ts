@@ -6,15 +6,23 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import { HomeModule } from './home/home.module';
+import { HomeComponent } from './home/home.component';
+import { QuemsomosComponent } from './quemsomos/quemsomos.component';
+import { NovoEnderecoComponent } from './novo-endereco/novo-endereco.component';
+import { QueroAgendarComponent } from './quero-agendar/quero-agendar.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    QuemsomosComponent,
+    NovoEnderecoComponent,
+    QueroAgendarComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
-    HomeModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,

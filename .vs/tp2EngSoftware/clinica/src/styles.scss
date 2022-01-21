@@ -2,3 +2,20 @@
 html * {
   font-family: system-ui;
 }
+
+.column {
+  float: left;
+  width: 25%;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+  padding-top: 20px;
+}
+
+.faixa{
+  background-color:#371883;
+  padding: 5px;
+}

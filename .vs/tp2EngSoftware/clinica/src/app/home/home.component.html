@@ -10,24 +10,25 @@
 
     <div class="column">
       <h2>Conheça mais sobre a clínica!</h2>
-      <button (click)="quemsomos()">Quem somos</button>
+      <button [routerLink]="['/quemsomos']">Quem somos</button>
     </div>
 
     <div class="column">
       <h2>Cadastre um novo endereço</h2>
-      <button (click)="quemsomos()">Novo endereço</button>
+      <button [routerLink]="['/novoEndereco']">Novo endereço</button>
     </div>
 
     <div class="column">
       <h2>Agende suas consultas</h2>
-      <button (click)="quemsomos()">Quero agendar</button>
+      <button [routerLink]="['/queroAgendar']">Quero agendar</button>
     </div>
 
     <div class="column">
       <h2>Área do funcionário</h2>
-      <button (click)="quemsomos()">Log in</button>
+      <button [routerLink]="['/login']">Log in</button>
     </div>
 
   </div>
 
 </body>
+

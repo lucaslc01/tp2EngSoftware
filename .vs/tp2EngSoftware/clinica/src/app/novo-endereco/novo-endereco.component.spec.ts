@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HomeComponent } from './home.component';
+import { NovoEnderecoComponent } from './novo-endereco.component';
 
-describe('HomeComponent', () => {
-  let component: HomeComponent;
-  let fixture: ComponentFixture<HomeComponent>;
+describe('NovoEnderecoComponent', () => {
+  let component: NovoEnderecoComponent;
+  let fixture: ComponentFixture<NovoEnderecoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HomeComponent ]
+      declarations: [ NovoEnderecoComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HomeComponent);
+    fixture = TestBed.createComponent(NovoEnderecoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
