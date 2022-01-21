@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'app-homepage',
+  templateUrl: './homepage.component.html',
+  styleUrls: ['./homepage.component.scss']
 })
-export class AppComponent implements OnInit {
+export class HomepageComponent implements OnInit {
+
   constructor(private router:Router){}
 
   ngOnInit(){
@@ -30,6 +31,5 @@ export class AppComponent implements OnInit {
   agendamento(){
 
   }
-
 
 }
