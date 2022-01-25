@@ -1,1 +1,51 @@
-<p>novo-endereco works!</p>
+<header class="faixa">
+
+  <h2 class="titulo">Cadastro de novo endereço</h2>
+
+</header>
+
+<body>
+  <form [formGroup]="cadastroEndereco">
+
+
+      <label>CEP</label>
+      <input type="text" maxlength="8" formControlName="cep">
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.cep">
+          <div class="error-message"
+            *ngIf="cadastroEndereco.get('cep')?.hasError(validation.type) && (cadastroEndereco.get('cep')?.dirty || cadastroEndereco.get('cep')?.touched)">
+            <p name="information-circle-outline"></p>{{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+
+
+
+      <label>Logradouro</label>
+      <input type="text" formControlName="logradouro">
+
+
+
+      <label>Bairro</label>
+      <input type="text" formControlName="bairro">
+
+
+
+      <label>Cidade</label>
+      <input type="text" formControlName="cidade">
+
+
+
+      <label>Estado</label>
+      <input type="text" formControlName="estado">
+
+
+
+    <button (click)="submit()">Submit</button>
+
+  </form>
+</body>
+
+<footer>
+
+</footer>

@@ -11,6 +11,7 @@ import { QuemsomosComponent } from './quemsomos/quemsomos.component';
 import { NovoEnderecoComponent } from './novo-endereco/novo-endereco.component';
 import { QueroAgendarComponent } from './quero-agendar/quero-agendar.component';
 import { LoginComponent } from './login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { LoginComponent } from './login/login.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
