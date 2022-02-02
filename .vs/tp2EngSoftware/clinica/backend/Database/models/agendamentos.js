@@ -9,6 +9,10 @@ class Agendamento extends Model {
     Agendamento.belongsTo(models.Medico,{as: "medico",foreignKey: "codMed"});
   }
 }
+/**
+ * Cria o modelo da tabela itens
+ * @param {import("sequelize/types").Sequelize} sequelize
+ */
 function initAgendamento (sequelize) {
   Agendamento.init({
       idAgendamento:{
@@ -34,6 +38,13 @@ function initAgendamento (sequelize) {
         type: DataTypes.String(255),
         allowNull: false,
       },
+      horario:{
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        min: 7,
+        max: 18
+
+      },
       codMed:{
         type: DataTypes.INTEGER,
         allowNull: false
@@ -45,6 +56,8 @@ function initAgendamento (sequelize) {
 		underscored: true,
 		modelName: "Agendamento",
 		tableName: "agendamentos"
-	}
-  )
+	}  );
+  return Agendamento
 }
+
+module.exports = initAgendamento;

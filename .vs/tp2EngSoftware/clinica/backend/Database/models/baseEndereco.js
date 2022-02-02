@@ -3,6 +3,10 @@ const { Model, DataTypes } = require("sequelize");
 class BaseEndereco extends Model {
 
 }
+/**
+ * Cria o modelo da tabela itens
+ * @param {import("sequelize/types").Sequelize} sequelize
+ */
 function initBaseEndereco (sequelize) {
 	BaseEndereco.init({
 		cep: {
