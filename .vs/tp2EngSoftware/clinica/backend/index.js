@@ -1,27 +1,39 @@
+// Configura variáveis de ambiente o mais cedo possível
+require("dotenv").config();
 
-const express = require('express')
+// Configura estampa de tempo dos logs
+require("console-stamp")(console, { pattern: "yyyy-mm-dd HH:MM:ss.l" });
 
+const cors = require("cors");
+const express = require("express");
+const logger = require("morgan");
+const path = require("path");
 
+const routes = require("./routes");
+
+const port = process.env.PORT || 3000;
 const app = express()
 
-app.use(express.json())
 
-app.get('/',(req,res)=>{
-  res.send('App is available')
 
-})
+app.set("port", port);
+app.use(logger("[:date[clf]] :method :url :status :response-time ms - :res[content-length]"));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cors({
+	origin: "*",
+	methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+	preflightContinue: true,
+	optionsSuccessStatus: 200
+}));
 
-app.post('/',(req,res)=>{
-  const login = req.body
-  console.log(login)
-  res.send('ok!!!')
+app.use("/api", routes);
 
-})
+// Manda todos as outras requisições para o index.html
+app.get("/*", (req, res) => {
+	res.sendFile(path.join(__dirname, "public", "index.html"));
+});
 
-app.get('/restrito',(req,res)=>{
-  res.send('Essa área é restrita')
-})
-
-app.listen(3000, ()=>{
-  console.log('App online')
-})
+app.listen(port, () => {
+	console.log(`O servidor está online na porta ${port}`);
+});

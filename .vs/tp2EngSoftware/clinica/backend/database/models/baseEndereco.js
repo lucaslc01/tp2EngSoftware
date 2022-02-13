@@ -25,10 +25,12 @@ function initBaseEndereco (sequelize) {
 		cidade: {
       type: DataTypes.STRING(31),
       allowNull: false
+
+
     },
     estado: {
       type: DataTypes.STRING(31),
-      allowNull: false
+      defaultValue: 'MG'
     }
 	}, {
 		sequelize,
@@ -36,7 +38,7 @@ function initBaseEndereco (sequelize) {
 		timestamps: false,
 		underscored: true,
 		modelName: "BaseEndereco",
-		tableName: "baseEnderecos"
+		tableName: "base_endereco"
 	});
 
 	return BaseEndereco;

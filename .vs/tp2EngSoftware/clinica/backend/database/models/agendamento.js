@@ -27,15 +27,15 @@ function initAgendamento (sequelize) {
         allowNull: false,
       },
       nome: {
-        type: DataTypes.String(255),
+        type: DataTypes.STRING(255),
         allowNull: false,
       },
       email: {
-        type: DataTypes.String(255),
+        type: DataTypes.STRING(255),
         allowNull: false,
       },
       telefone: {
-        type: DataTypes.String(255),
+        type: DataTypes.STRING(255),
         allowNull: false,
       },
       horario:{
@@ -55,7 +55,7 @@ function initAgendamento (sequelize) {
 		timestamps: false,
 		underscored: true,
 		modelName: "Agendamento",
-		tableName: "agendamentos"
+		tableName: "agendamento"
 	}  );
   return Agendamento
 }
