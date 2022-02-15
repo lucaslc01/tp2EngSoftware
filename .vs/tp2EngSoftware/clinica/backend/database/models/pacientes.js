@@ -7,7 +7,7 @@ class Paciente extends Model {
 	 */
    static associate(models) {
     Paciente.belongsTo(models.Pessoa,{as: "pessoa",foreignKey: "codigo"});
-    Paciente.hasMany(models.PessoaAgendamento,{as: "agendamento",foreignKey: "codigo_paciente"});
+    Paciente.hasMany(models.PessoaAgendamento,{as: "agendamentos",foreignKey: "codigo_paciente"});
   }
 }
 function initPaciente(sequelize) {
