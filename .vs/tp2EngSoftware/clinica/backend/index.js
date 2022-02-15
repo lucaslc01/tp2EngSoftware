@@ -29,6 +29,8 @@ app.use(cors({
 
 app.use("/api", routes);
 
+app.use(express.static(path.join(__dirname, "public")));
+
 // Manda todos as outras requisições para o index.html
 app.get("/*", (req, res) => {
 	res.sendFile(path.join(__dirname, "public", "index.html"));

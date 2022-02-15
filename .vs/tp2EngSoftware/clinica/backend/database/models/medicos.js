@@ -6,20 +6,27 @@ class Medico extends Model {
 	 * @param {import("./index")} models Modelos das tabelas do banco de dados
 	 */
    static associate(models) {
-    Medico.belongsTo(models.Pessoa,{as: "pessoa",foreignKey: "codigo"});
+    Medico.belongsTo(models.Funcionario,{as: "funcionario",foreignKey: "codigo_fun"});
+    Medico.hasMany(models.Agendamento,{as: "agendamentos",foreignKey: "cod_med"});
   }
 }
 
 function initMedico(sequelize){
   Medico.init({
-    codigo:{
+
+    cod_med:{
       type: DataTypes.INTEGER,
       allowNull: false,
       autoIncrement: true,
       primaryKey: true
     },
+    codigo_fun:{
+      type: DataTypes.INTEGER,
+      allowNull: false,
+
+    },
     especially:{
-      type: DataTypes.ENUM("Clinico Geral","Endocrinologista","Oftamologista","Pediatra"),
+      type: DataTypes.ENUM("Clinico Geral","Endocrinologista","Oftalmologista","Pediatra"),
       allowNull: false
     },
 
@@ -36,7 +43,7 @@ function initMedico(sequelize){
 		timestamps: false,
 		underscored: true,
 		modelName: "Medico",
-		tableName: "medico"
+		tableName: "medicos"
 	};
   return Medico;
 }

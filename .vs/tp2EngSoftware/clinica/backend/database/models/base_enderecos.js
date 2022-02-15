@@ -38,7 +38,7 @@ function initBaseEndereco (sequelize) {
 		timestamps: false,
 		underscored: true,
 		modelName: "BaseEndereco",
-		tableName: "base_endereco"
+		tableName: "base_enderecos"
 	});
 
 	return BaseEndereco;

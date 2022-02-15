@@ -7,12 +7,17 @@ module.exports = {
 	 * @param {import("sequelize/types").DataTypes} Sequelize
 	 */
 	up: async (queryInterface, Sequelize) => {
-		await queryInterface.createTable("funcionario", {
-			codigo:{
+		await queryInterface.createTable("funcionarios", {
+			codigo_fun:{
         type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true
+      },
+      codigo:{
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: { model: "pessoas", key: "codigo" }
       },
       dataContract:{
         type: Sequelize.DATE,
@@ -24,9 +29,13 @@ module.exports = {
         type: Sequelize.FLOAT,
         allowNull: false
       },
-      senhaHash: {
+      senha_hash: {
         type: Sequelize.STRING,
-        minlength: 5
+        validate:{
+          len : [5,20]
+        },
+        allowNull: false
+
       }
 
 		});
@@ -38,6 +47,6 @@ module.exports = {
 	 * @param {import("sequelize/types").Sequelize} Sequelize
 	 */
 	down: async (queryInterface, Sequelize) => {
-		await queryInterface.dropTable("funcionario");
+		await queryInterface.dropTable("funcionarios");
 	}
 };

@@ -1,12 +1,12 @@
 const Sequelize = require("sequelize");
 
 const configs = require("../config/config");
-const initBaseEndereco = require("./baseEndereco");
-const initPaciente= require("./paciente");
-const initAgendamento = require("./agendamento");
-const initFuncionario = require("./funcionario");
-const initPessoa = require("./pessoa");
-const initMedico = require("./medico");
+const initBaseEndereco = require("./base_enderecos");
+const initPaciente= require("./pacientes");
+const initAgendamento = require("./agendamentos");
+const initFuncionario = require("./funcionarios");
+const initPessoa = require("./pessoas");
+const initMedico = require("./medicos.js");
 
 
 const env = process.env.NODE_ENV || "development";
@@ -30,7 +30,7 @@ const db = {
 };
 
 db.Agendamento.associate(db);
-db.BaseEndereco.associate(db);
+
 db.Funcionario.associate(db);
 db.Medico.associate(db);
 db.Paciente.associate(db);

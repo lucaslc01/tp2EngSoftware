@@ -7,24 +7,43 @@ module.exports = {
 	 * @param {import("sequelize/types").DataTypes} Sequelize
 	 */
 	up: async (queryInterface, Sequelize) => {
-		await queryInterface.createTable("paciente", {
+		await queryInterface.createTable("pessoas", {
       codigo:{
         type: Sequelize.INTEGER,
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true
       },
-      peso:{
-        type: Sequelize.FLOAT,
+      nome:{
+        type: Sequelize.STRING(31),
         allowNull: false
       },
-      altura: {
-        type: Sequelize.FLOAT,
+      email:{
+        type: Sequelize.STRING(31),
         allowNull: false
       },
-      tipoSaquineo:{
-        type: Sequelize.ENUM("A+","A-","B+","B-","AB+","AB-","O+","O-"),
+      telefone:{
+        type: Sequelize.STRING(31),
         allowNull: false
+      },
+      cep: {
+        type: Sequelize.STRING(31),
+        allowNull: false,
+      },
+      bairro: {
+        type: Sequelize.STRING(255),
+        allowNull: false
+      },
+      logradouro: {
+        type: Sequelize.STRING(255),
+        allowNull: false
+      },
+      cidade: {
+        type: Sequelize.STRING(31),
+        allowNull: false
+      },
+      estado: {
+        type: Sequelize.STRING(31),
+        defaultValue: 'MG'
       }
 		});
 	},
@@ -35,6 +54,6 @@ module.exports = {
 	 * @param {import("sequelize/types").Sequelize} Sequelize
 	 */
 	down: async (queryInterface, Sequelize) => {
-		await queryInterface.dropTable("paciente");
+		await queryInterface.dropTable("pessoa");
 	}
 };

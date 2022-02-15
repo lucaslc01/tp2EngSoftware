@@ -6,7 +6,8 @@ class Agendamento extends Model {
 	 * @param {import("./index")} models Modelos das tabelas do banco de dados
 	 */
   static associate(models) {
-    Agendamento.belongsTo(models.Medico,{as: "medico",foreignKey: "codMed"});
+    Agendamento.belongsTo(models.Medico,{as: "medico",foreignKey: "cod_med"});
+    Agendamento.belongsTo(models.Paciente,{as: "paciente",foreignKey: "cod_paciente"});
   }
 }
 /**
@@ -41,13 +42,18 @@ function initAgendamento (sequelize) {
       horario:{
         type: DataTypes.INTEGER,
         allowNull: false,
-        min: 7,
-        max: 18
+        validate:{
+          min: 7,
+          max: 18}
 
       },
-      codMed:{
+      cod_med:{
         type: DataTypes.INTEGER,
         allowNull: false
+      },
+      cod_paciente:{
+        type: DataTypes.INTEGER,
+        allowNull: false,
       }
   },{
 		sequelize,
@@ -55,7 +61,7 @@ function initAgendamento (sequelize) {
 		timestamps: false,
 		underscored: true,
 		modelName: "Agendamento",
-		tableName: "agendamento"
+		tableName: "agendamentos"
 	}  );
   return Agendamento
 }

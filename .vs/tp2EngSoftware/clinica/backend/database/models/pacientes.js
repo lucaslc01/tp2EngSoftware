@@ -7,15 +7,20 @@ class Paciente extends Model {
 	 */
    static associate(models) {
     Paciente.belongsTo(models.Pessoa,{as: "pessoa",foreignKey: "codigo"});
+    Paciente.hasMany(models.PessoaAgendamento,{as: "agendamento",foreignKey: "codigo_paciente"});
   }
 }
 function initPaciente(sequelize) {
   Paciente.init({
-    codigo:{
+    codigo_paciente:{
       type: DataTypes.INTEGER,
       allowNull: false,
       autoIncrement: true,
       primaryKey: true
+    },
+    codigo:{
+      type: DataTypes.INTEGER,
+      allowNull: false,
     },
     peso:{
       type: DataTypes.FLOAT,
@@ -35,7 +40,7 @@ function initPaciente(sequelize) {
 		timestamps: false,
 		underscored: true,
 		modelName: "Paciente",
-		tableName: "paciente"
+		tableName: "pacientes"
 	});
   return Paciente;
 

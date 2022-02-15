@@ -7,15 +7,20 @@ module.exports = {
 	 * @param {import("sequelize/types").DataTypes} Sequelize
 	 */
 	up: async (queryInterface, Sequelize) => {
-		await queryInterface.createTable("medico", {
-      codigo:{
+		await queryInterface.createTable("medicos", {
+      cod_med:{
         type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true
       },
+      codigo_fun:{
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: { model: "funcionarios", key: "codigo_fun" },
+      },
       especially:{
-        type: Sequelize.ENUM("Clinico Geral","Endocrinologista","Oftamologista","Pediatra"),
+        type: Sequelize.ENUM("Clinico Geral","Endocrinologista","Oftalmologista","Pediatra"),
         allowNull: false
       },
 
@@ -33,6 +38,6 @@ module.exports = {
 	 * @param {import("sequelize/types").Sequelize} Sequelize
 	 */
 	down: async (queryInterface, Sequelize) => {
-		await queryInterface.dropTable("medico");
+		await queryInterface.dropTable("medicos");
 	}
 };

@@ -1,4 +1,5 @@
 const { Model, DataTypes } = require("sequelize");
+const bcrypt = require("bcrypt");
 
 class Funcionario extends Model {
   /**
@@ -7,16 +8,21 @@ class Funcionario extends Model {
 	 */
    static associate(models) {
     Funcionario.belongsTo(models.Pessoa,{as: "pessoa",foreignKey: "codigo"});
+    Funcionario.hasOne(models.Medico,{as: "medico",foreignKey: "codigo_fun"});
   }
 
 }
 function initFuncionario(sequelize){
   Funcionario.init({
-    codigo:{
+    codigo_fun:{
       type: DataTypes.INTEGER,
       allowNull: false,
       autoIncrement: true,
       primaryKey: true
+    },
+    codigo:{
+      type: DataTypes.INTEGER,
+      allowNull: false
     },
     dataContract:{
       type: DataTypes.DATE,
@@ -27,19 +33,27 @@ function initFuncionario(sequelize){
       type: DataTypes.FLOAT,
       allowNull: false
     },
-    senhaHash: {
+    senha_hash: {
       type: DataTypes.STRING,
-      minlength: 5
+      validate:{
+        len : [5,20]
+      },
+      allowNull: false
     }
 
-  },{
+  },
+  {
     sequelize,
 		paranoid: false,
 		timestamps: false,
 		underscored: true,
 		modelName: "Funcionario",
-		tableName: "funcionario"
+		tableName: "funcionarios"
+
   });
+
   return Funcionario;
 }
+
+
 module.exports = initFuncionario;

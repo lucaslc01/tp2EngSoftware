@@ -32,7 +32,7 @@ module.exports = {
 	 * @param {import("sequelize").DataTypes} Sequelize
 	 */
 	up: async (queryInterface, Sequelize) => {
-		await queryInterface.bulkInsert("base_endereco", enderecos);
+		await queryInterface.bulkInsert("base_enderecos", enderecos);
 	},
 
 	/**
@@ -41,8 +41,8 @@ module.exports = {
 	 * @param {import("sequelize").Sequelize} Sequelize
 	 */
 	down: async (queryInterface, Sequelize) => {
-		await queryInterface.bulkDelete("base_endereco", {
-			cep: enderecos.map(b => b.cep)
+		await queryInterface.bulkDelete("base_enderecos", {
+      [Sequelize.Op.or]: enderecos
 		});
 	}
 };

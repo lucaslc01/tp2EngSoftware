@@ -1,6 +1,15 @@
 const { Model, DataTypes } = require("sequelize");
 
 class Pessoa extends Model {
+   /**
+	 * Cria as associações entre as tabelas do banco de dados
+	 * @param {import("./index")} models Modelos das tabelas do banco de dados
+	 */
+
+  static associate(models) {
+    Pessoa.hasOne(models.Funcionario,{as: "funcionario",foreignKey: "codigo"});
+    Pessoa.hasOne(models.Paciente,{as: "paciente",foreignKey: "codigo"});
+  }
 
 }
 /**
@@ -33,6 +42,7 @@ function initPessoa(sequelize) {
 		},
 		bairro: {
 			type: DataTypes.STRING(255),
+
 			allowNull: false
 		},
 		logradouro: {
@@ -45,7 +55,7 @@ function initPessoa(sequelize) {
     },
     estado: {
       type: DataTypes.STRING(31),
-      allowNull: false
+      defaultValue: 'MG'
     }
   }, {
 		sequelize,
@@ -53,7 +63,7 @@ function initPessoa(sequelize) {
 		timestamps: false,
 		underscored: true,
 		modelName: "Pessoa",
-		tableName: "pessoa"
+		tableName: "pessoas"
 	});
   return Pessoa;
 }

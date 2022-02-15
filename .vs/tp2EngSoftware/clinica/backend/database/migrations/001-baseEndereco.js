@@ -7,40 +7,29 @@ module.exports = {
 	 * @param {import("sequelize/types").DataTypes} Sequelize
 	 */
 	up: async (queryInterface, Sequelize) => {
-		await queryInterface.createTable("agendamento", {
-			idAgendamento:{
-        type: Sequelize.INTEGER,
+		await queryInterface.createTable("base_enderecos", {
+			cep: {
+        type: Sequelize.STRING(31),
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true
-
       },
-      data: {
-        type: Sequelize.DATE,
-        allowNull: false,
-      },
-      nome: {
+      bairro: {
         type: Sequelize.STRING(255),
-        allowNull: false,
-      },
-      email: {
-        type: Sequelize.STRING(255),
-        allowNull: false,
-      },
-      telefone: {
-        type: Sequelize.STRING(255),
-        allowNull: false,
-      },
-      horario:{
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        min: 7,
-        max: 18
-
-      },
-      codMed:{
-        type: Sequelize.INTEGER,
         allowNull: false
+      },
+      logradouro: {
+        type: Sequelize.STRING(255),
+        allowNull: false
+      },
+      cidade: {
+        type: Sequelize.STRING(31),
+        allowNull: false
+
+      },
+      estado: {
+        type: Sequelize.STRING(31),
+        defaultValue: 'MG'
+
       }
 		});
 	},
@@ -51,6 +40,6 @@ module.exports = {
 	 * @param {import("sequelize/types").Sequelize} Sequelize
 	 */
 	down: async (queryInterface, Sequelize) => {
-		await queryInterface.dropTable("agendamento");
+		await queryInterface.dropTable("base_enderecos");
 	}
 };
