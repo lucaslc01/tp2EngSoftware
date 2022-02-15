@@ -12,6 +12,9 @@ import { NovoEnderecoComponent } from './novo-endereco/novo-endereco.component';
 import { QueroAgendarComponent } from './quero-agendar/quero-agendar.component';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from "@angular/material/form-field";
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     HttpClientModule,
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QueroAgendarComponent implements OnInit {
 
+  public listaEspecialistas: string[] = ['Clinico geral', 'Endocrinologista', 'Oftamologista', 'Pediatra'];
+
+  public especialistaSelecionado: number = 0;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  nomeEspecialidade (especialista: number): void {
+
   }
 
 }

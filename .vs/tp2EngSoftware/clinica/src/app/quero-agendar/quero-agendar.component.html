@@ -1,1 +1,26 @@
-<p>quero-agendar works!</p>
+<header class="faixa">
+
+  <h2 class="titulo" style="color: white;">Agendamento</h2>
+
+</header>
+
+<body>
+  <h4>Escolha a especialidade</h4>
+  <mat-form-field appearance="fill">
+    <mat-label>Select an option</mat-label>
+    <mat-select [(value)]="especialistaSelecionado">
+      <mat-option>None</mat-option>
+      <mat-option value=1>Clinico geral</mat-option>
+      <mat-option value=2>Endocrinologista</mat-option>
+      <mat-option value=3>Oftamologista</mat-option>
+      <mat-option value=4>Pediatra</mat-option>
+    </mat-select>
+  </mat-form-field>
+</body>
+
+<footer>
+  <div class="column" style="padding-top: 20px;">
+    <button [routerLink]="['']">Voltar</button>
+    <h4>Voltar à página inicial</h4>
+  </div>
+</footer>
