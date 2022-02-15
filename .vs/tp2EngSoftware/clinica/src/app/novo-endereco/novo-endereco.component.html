@@ -1,51 +1,66 @@
 <header class="faixa">
 
-  <h2 class="titulo">Cadastro de novo endereço</h2>
+  <h2 class="titulo" style="color: white;">Cadastro de novo endereço</h2>
 
 </header>
 
-<body>
+<body style="padding-top: 50px;">
   <form [formGroup]="cadastroEndereco">
 
 
-      <label>CEP</label>
-      <input type="text" maxlength="8" formControlName="cep">
-      <div class="validation-errors">
-        <ng-container *ngFor="let validation of validation_messages.cep">
-          <div class="error-message"
-            *ngIf="cadastroEndereco.get('cep')?.hasError(validation.type) && (cadastroEndereco.get('cep')?.dirty || cadastroEndereco.get('cep')?.touched)">
-            <p name="information-circle-outline"></p>{{ validation.message }}
-          </div>
-        </ng-container>
+      <div style="text-align: -webkit-center;">
+        <label>CEP</label>
+        <input type="text" maxlength="8" formControlName="cep">
+        <div class="validation-errors" style="color: red;">
+          <ng-container *ngFor="let validation of validation_messages.cep">
+            <div class="error-message"
+              *ngIf="cadastroEndereco.get('cep')?.hasError(validation.type) && (cadastroEndereco.get('cep')?.dirty || cadastroEndereco.get('cep')?.touched)">
+              <div name="information-circle-outline"></div>{{ validation.message }}
+            </div>
+          </ng-container>
+        </div>
+      </div>
+
+    <!--Falta tratar cada caso-->
+
+      <div style="text-align: -webkit-center; padding-top: 20px;">
+        <label>Logradouro</label>
+        <input type="text" formControlName="logradouro">
       </div>
 
 
 
-      <label>Logradouro</label>
-      <input type="text" formControlName="logradouro">
+      <div style="text-align: -webkit-center; padding-top: 20px;">
+        <label>Bairro</label>
+        <input type="text" formControlName="bairro">
+      </div>
 
 
 
-      <label>Bairro</label>
-      <input type="text" formControlName="bairro">
+      <div style="text-align: -webkit-center; padding-top: 20px;">
+        <label>Cidade</label>
+        <input type="text" formControlName="cidade">
+      </div>
 
 
 
-      <label>Cidade</label>
-      <input type="text" formControlName="cidade">
+      <div style="text-align: -webkit-center; padding-top: 20px;">
+        <label>Estado</label>
+        <input type="text" formControlName="estado">
+      </div>
 
 
 
-      <label>Estado</label>
-      <input type="text" formControlName="estado">
-
-
-
-    <button (click)="submit()">Submit</button>
+    <div style="text-align: -webkit-center; padding-top: 20px;">
+      <button (click)="submit()">Submit</button>
+    </div>
 
   </form>
 </body>
 
 <footer>
-
+  <div class="column">
+    <button [routerLink]="['']">Voltar</button>
+    <h4>Voltar à página inicial</h4>
+  </div>
 </footer>
