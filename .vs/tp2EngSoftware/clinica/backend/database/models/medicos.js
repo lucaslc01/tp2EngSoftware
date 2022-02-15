@@ -17,7 +17,6 @@ function initMedico(sequelize){
     cod_med:{
       type: DataTypes.INTEGER,
       allowNull: false,
-      autoIncrement: true,
       primaryKey: true
     },
     codigo_fun:{

@@ -21,7 +21,6 @@ function initPessoa(sequelize) {
     codigo:{
       type: DataTypes.INTEGER,
       allowNull: false,
-      autoIncrement: true,
       primaryKey: true
     },
     nome:{

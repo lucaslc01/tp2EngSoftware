@@ -11,7 +11,6 @@ module.exports = {
       cod_med:{
         type: Sequelize.INTEGER,
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true
       },
       codigo_fun:{

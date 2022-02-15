@@ -11,7 +11,7 @@ module.exports = {
 			codigo_fun:{
         type: Sequelize.INTEGER,
         allowNull: false,
-        autoIncrement: true,
+
         primaryKey: true
       },
       codigo:{

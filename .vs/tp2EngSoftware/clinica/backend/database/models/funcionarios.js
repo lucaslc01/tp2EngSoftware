@@ -17,7 +17,6 @@ function initFuncionario(sequelize){
     codigo_fun:{
       type: DataTypes.INTEGER,
       allowNull: false,
-      autoIncrement: true,
       primaryKey: true
     },
     codigo:{
